@@ -149,8 +149,8 @@ export default function HomePage() {
             <p className="text-center text-muted-text text-[15px] py-[30px]">No featured properties listed currently.</p>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[25px]">
-              {featuredProperties.map((p) => (
-                <PropertyCard key={p.id} property={p} />
+              {featuredProperties.map((p, index) => (
+                <PropertyCard key={p.id} property={p} priority={index < 3} />
               ))}
             </div>
           )}
@@ -394,7 +394,7 @@ export default function HomePage() {
 }
 
 // Property Card Helper
-function PropertyCard({ property }: { property: Property }) {
+function PropertyCard({ property, priority = false }: { property: Property; priority?: boolean }) {
   const formatPrice = (price: number) => {
     // Format price in Lakhs/Crores Lakhs/Crores
     if (price >= 10000000) {
@@ -425,6 +425,7 @@ Please send more details.`;
           alt={property.title}
           fill
           sizes="(max-width: 768px) 100vw, 33vw"
+          priority={priority}
           className="object-cover group-hover:scale-105 transition-transform duration-300"
         />
 

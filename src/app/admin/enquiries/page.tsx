@@ -135,7 +135,7 @@ export default function AdminEnquiriesPage() {
                     </td>
                     <td className="p-[12px]">
                       <div className="flex flex-col pr-[10px] min-w-[150px]">
-                        <span className="font-medium text-[#243238] truncate" title={e.property_title}>
+                        <span className="font-medium text-[#243238] truncate" title={e.property_title ?? undefined}>
                           {e.property_title || "[General Inquiry]"}
                         </span>
                         <span className="text-muted-text text-[10.5px]">

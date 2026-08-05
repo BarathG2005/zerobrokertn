@@ -421,8 +421,8 @@ function PropertiesListContent() {
             </div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-[25px]">
-              {currentPropertiesList.map((p) => (
-                <PropertyCardLarge key={p.id} property={p} />
+              {currentPropertiesList.map((p, index) => (
+                <PropertyCardLarge key={p.id} property={p} priority={index < 2} />
               ))}
             </div>
           )}
@@ -604,7 +604,7 @@ function PropertiesListContent() {
 }
 
 // Larger Property Card component mapping specs
-function PropertyCardLarge({ property }: { property: Property }) {
+function PropertyCardLarge({ property, priority = false }: { property: Property; priority?: boolean }) {
   const formatPrice = (price: number) => {
     if (price >= 10000000) return `₹${(price / 10000000).toFixed(2)} Cr`;
     if (price >= 100000) return `₹${(price / 100000).toFixed(1)} Lakhs`;
@@ -631,6 +631,7 @@ Please send more details.`;
           alt={property.title}
           fill
           sizes="(max-width: 768px) 100vw, 50vw"
+          priority={priority}
           className="object-cover group-hover:scale-105 transition-transform duration-350"
         />
 
