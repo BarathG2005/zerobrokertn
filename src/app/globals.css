@@ -1,0 +1,73 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #ffffff;
+  --color-surface: #b3c8e7;
+  --color-primary-text: #243238;
+  --color-muted-text: #b0bec5;
+  --color-accent: #00a3ff;
+  --color-danger: #da532c;
+  --color-info: #9cc8f5;
+  --color-theme-blue: #2196f3;
+  --color-dark-bg: #000000;
+  --color-unknown-blue: #2d394b;
+
+  --font-sans: sans-serif;
+
+  --radius-xs: 3px;
+  --radius-sm: 3px;
+  --radius-md: 3px;
+  --radius-lg: 3px;
+  --radius-xl: 3px;
+  --radius-2xl: 3px;
+  --radius-full: 3px; /* Strictly flat design radius: 3px */
+
+  --shadow-sm: none;
+  --shadow-md: none;
+  --shadow-lg: none;
+  --shadow-xl: none;
+  --shadow-2xl: none;
+  --shadow-none: none;
+}
+
+:root {
+  --background: #ffffff;
+  --surface: #b3c8e7;
+  --primary-text: #243238;
+  --muted-text: #b0bec5;
+  --accent: #00a3ff;
+  --danger: #da532c;
+  --info: #9cc8f5;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--primary-text);
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Scroll reveal patterns */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Button & interactive hover transitions */
+.btn-transition {
+  transition: all 150ms ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
